@@ -19,6 +19,10 @@ migrate = Migrate(app, db)
 api = Api(app)
 
 # Resources
+# Home route
+@app.route('/')
+def home():
+    return jsonify(message="Welcome to the Show! We hope you enjoy the episodes and guest appearances. Have a sweet day!")
 
 class EpisodeListResource(Resource):
     def get(self):
@@ -75,4 +79,4 @@ api.add_resource(AppearanceResource, '/appearances')
 
 # Initialize the app
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5555)
